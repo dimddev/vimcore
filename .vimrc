@@ -68,6 +68,7 @@ set statusline+=%*
 " Marks and undo
 set undofile
 set undodir=~/.cache/vim/undo
+set directory=~/.cache/vim/
 
 " ***********************************************************
 " SPELL SETTINGS
