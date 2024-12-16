@@ -1,7 +1,11 @@
 set runtimepath+=~/.vim/plugged/gruvbox
 
-set background=dark
-colorscheme gruvbox
+if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
+    colorscheme gruvbox
+    set background=dark
+else
+    echo "Gruvbox theme not installed. Run :PlugInstall"
+endif
 
 set guicursor=
 set termguicolors

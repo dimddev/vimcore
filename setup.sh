@@ -15,31 +15,19 @@ error_exit() {
 }
 
 log "Updating package lists..."
-if ! sudo apt update; then
+if ! apt update; then
     error_exit "Failed to update package lists."
 fi
 
 log "Installing required dependencies..."
-if ! sudo apt install -y git jq yq curl fzf ripgrep vim; then
+if ! apt install -y git jq yq curl fzf ripgrep vim; then
     error_exit "Failed to install dependencies."
 fi
 
 cd /root || error_exit "Failed to change directory to /root."
 
-# Clone and build Vim from the dimddev/vimcore repository
-log "Cloning dimddev/vimcore..."
-if [[ ! -d /root/vimcore ]]; then
-    if ! git clone https://github.com/dimddev/vimcore.git; then
-        error_exit "Failed to clone the vimcore repository."
-    fi
-    if ! ln -s /root/vimcore/.vimrc /root/.vimrc; then
-        error_exit "Failed to create symbolic link for .vimrc."
-    fi
-else
-    log "vimcore directory already exists. Pulling the latest changes..."
-    if ! cd /root/vimcore || ! git pull; then
-        error_exit "Failed to update the vimcore repository."
-    fi
+if ! ln -s /root/vimcore/.vimrc /root/.vimrc; then
+    error_exit "Failed to create symbolic link for .vimrc."
 fi
 
 # Set up vim-plug
