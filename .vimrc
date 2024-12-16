@@ -71,10 +71,6 @@ set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/
 
 " ***********************************************************
-" SPELL SETTINGS
-setlocal spell spelllang=en
-
-" ***********************************************************
 " RUNTIME VIM MACROS
 runtime macros/matchit.vim
 
@@ -114,12 +110,6 @@ autocmd FocusLost * silent! wa " Auto-save all files when Vim loses focus
 autocmd FileType markdown,text setlocal wrap " Enable line wrapping for Markdown and plain text
 autocmd BufLeave,QuitPre * silent! wa
 
-
-" Leader Key Mappings
-nnoremap <leader>w :w<CR>     " Save the file with <leader>w
-nnoremap <leader>q :q<CR>     " Quit Vim with <leader>q
-nnoremap <leader>x :x<CR>     " Save and quit with <leader>x
-
 " ***********************************************************
 " AUTOMATICALLY LEAVE INSERT MODE,
 " AFTER 'updatetime' MILLISECONDS OF INACTION
@@ -139,6 +129,11 @@ noremap <Right> <Nop>
 
 " ***********************************************************
 " SHORTCUTS
+" Leader Key Mappings
+nnoremap <leader>w :w<CR>     " Save the file with <leader>w
+nnoremap <leader>q :q<CR>     " Quit Vim with <leader>q
+nnoremap <leader>x :x<CR>     " Save and quit with <leader>x
+
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 
@@ -149,23 +144,6 @@ nnoremap <silent> <leader>; :BLines<CR>
 nnoremap <silent> <leader>? :History<CR>
 
 nnoremap <leader>0 :g/^[^0-9]/s/^/\=line('.') . '. '/<CR>
-
-" ***********************************************************************************
-" SPELLING RULES
-fun! SetSpellingColors()
-  highlight SpellBad cterm=bold ctermfg=white ctermbg=red
-  highlight SpellCap cterm=bold ctermfg=red ctermbg=white
-endfun
-
-augroup spellrulez
-  autocmd!
-  autocmd BufWinEnter *.txt,*.md call SetSpellingColors()
-  autocmd BufNewFile *.txt,*.md call SetSpellingColors()
-  autocmd BufRead *.txt,*.md call SetSpellingColors()
-  autocmd InsertEnter *.txt,*.md call SetSpellingColors()
-  autocmd InsertLeave *.txt,*.md call SetSpellingColors()
-  autocmd BufWritePost *.txt,*.md call SetSpellingColors()
-augroup END
 
 " ***********************************************************************************
 " EASY MOTION
