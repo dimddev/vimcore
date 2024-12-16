@@ -1,12 +1,5 @@
 set runtimepath+=~/.vim/plugged/gruvbox
 
-if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
-    colorscheme gruvbox
-    set background=dark
-else
-    echo "Gruvbox theme not installed. Run :PlugInstall"
-endif
-
 set guicursor=
 set termguicolors
 
@@ -107,6 +100,13 @@ Plug 'junegunn/fzf.vim'
 
 " ALL OF YOUR PLUGINS MUST BE ADDED BEFORE THE FOLLOWING LINE
 call plug#end() " initialize plugin system
+
+if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
+    colorscheme gruvbox
+    set background=dark
+else
+    echo "Gruvbox theme not installed. Run :PlugInstall"
+endif
 
 " Autocommands
 autocmd FocusLost * silent! wa " Auto-save all files when Vim loses focus

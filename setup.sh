@@ -43,5 +43,7 @@ if ! vim +PlugInstall +qall; then
     error_exit "Failed to install Vim plugins."
 fi
 
+mkdir -p /root/.cache/vim/undo
+
 log "Setup complete! Vim has been installed from vimcore, and plugins have been configured."
 
