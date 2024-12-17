@@ -87,23 +87,21 @@ Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline-themes'
 
 " ALL OF YOUR PLUGINS MUST BE ADDED BEFORE THE FOLLOWING LINE
 call plug#end() " initialize plugin system
 
-if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
-    colorscheme gruvbox
-    set background=dark
-else
-    echo "Gruvbox theme not installed. Run :PlugInstall"
-endif
-
+colorscheme dracula
+set background=dark
+    "
 "airline
 "let g:airline_theme = 'gruvbox'
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
