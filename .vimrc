@@ -102,7 +102,8 @@ else
 endif
 
 "airline
-let g:airline_theme = 'gruvbox'
+"let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'murmur'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -161,14 +162,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" ***********************************************************************************
-" AIRLINE THEME
-let g:airline_theme='murmur'
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
 
 " Search with ripgrep within files. Use :Rg
 command! -nargs=* Rg call fzf#vim#grep(
