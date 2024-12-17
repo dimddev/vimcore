@@ -20,7 +20,7 @@ if ! apt update; then
 fi
 
 log "Installing required dependencies..."
-if ! apt install -y git jq yq curl fzf ripgrep vim; then
+if ! apt install -y git jq yq curl fzf ripgrep vim fonts-powerline; then
     error_exit "Failed to install dependencies."
 fi
 

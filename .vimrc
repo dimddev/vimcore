@@ -18,7 +18,6 @@ set autoindent                " Copy indent from the previous line
 
 " Display Line Numbers
 set number                    " Show absolute line numbers
-" set relativenumber            " Show relative line numbers for easy navigation
 
 " Cursor and Highlighting
 set cursorline                " Highlight the line where the cursor is
@@ -61,10 +60,6 @@ set hidden                    " Allow switching buffers without saving changes
 set wildmenu                  " Enable enhanced command-line completion
 set wildmode=list:longest,full " Show options in a list and autocomplete the longest common part
 
-set statusline+=%#warningmsg#
-set statusline+=%{virtualenv#statusline()}
-set statusline+=%*
-
 " Marks and undo
 set undofile
 set undodir=~/.cache/vim/undo
@@ -88,12 +83,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
+Plug 'sheerun/vim-polyglot'
 
 " ALL OF YOUR PLUGINS MUST BE ADDED BEFORE THE FOLLOWING LINE
 call plug#end() " initialize plugin system
@@ -104,6 +100,14 @@ if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
 else
     echo "Gruvbox theme not installed. Run :PlugInstall"
 endif
+
+"airline
+let g:airline_theme = 'gruvbox'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_section_z = '%p%% %{getfsize(expand("%"))}b'
 
 " Autocommands
 autocmd FocusLost * silent! wa " Auto-save all files when Vim loses focus
