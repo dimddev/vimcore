@@ -3,6 +3,8 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+chmod 1777 /tmp
+
 # Function to print a status message
 log() {
     echo -e "\033[1;32m[INFO]\033[0m $1"
@@ -20,7 +22,7 @@ if ! apt update; then
 fi
 
 log "Installing required dependencies..."
-if ! apt install -y git jq yq curl fzf ripgrep vim fonts-powerline; then
+if ! apt install -y git jq curl fzf ripgrep vim fonts-powerline; then
     error_exit "Failed to install dependencies."
 fi
 
