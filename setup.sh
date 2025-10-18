@@ -31,6 +31,10 @@ install_pkg_obsd() {
     log "OpenBSD: installing $p ..."
     $DOAS pkg_add -I "$p" || die "Failed to install '$p' (OpenBSD)"
   done
+  if [ ! -f /usr/include/stddef.h ]; then
+    log "C headers not found; building Go tools with CGO_DISABLED"
+    export CGO_ENABLED=0
+  fi
 }
 
 install_pkg_fbsd() {
